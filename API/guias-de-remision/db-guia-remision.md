@@ -1,33 +1,52 @@
 # 🌐 ATRIBUTOS DE LA GUIA DE REMISIÓN
 
-Esta sección describe cómo interactuar con los endpoints de la API para realizar operaciones **CRUD** y la estructura de datos utilizada.
+Esta sección describe los atributos de las guías de remisión que se van almacenar
 
 ---
 
-## 🏗️ CAMPOS DE LA TABLA: `Producto`
+## 🏗️ Esquema Principal: `GuiaRemision`
 
-Este es el formato que se espera para crear o actualizar un recurso, y el que se recibirá al consultarlo.
+Este es el objeto de nivel superior que se envía para crear el documento.
 
 | Campo | Tipo | Descripción | Requerido |
 | :--- | :--- | :--- | :--- |
-| **`id`** | `INTEGER` | Identificador único del producto. *Generado por el sistema.* | **Sí** |
-| **`nombre`** | `STRING` | Nombre legible del producto. | **Sí** |
-| **`precio`** | `FLOAT` | Precio unitario del producto. | **Sí** |
-| **`descripcion`** | `STRING` | Descripción detallada del producto. | **No** |
-| **`stock`** | `INTEGER` | Cantidad disponible en inventario. | **Sí** |
-| **`fecha_creacion`** | `DATETIME` | Marca de tiempo de cuándo fue creado el producto. | **Sí** |
+| **`id`** | `INTEGER` | Identificador único de la guía. *Generado por el sistema.* | **Sí** |
+| **`cliente`** | `STRING` | **Nombre del cliente** o razón social a donde se dirige la mercancía. (Paso 1) | **Sí** |
+| **`destino`** | `STRING` | **Dirección completa** del punto de entrega. (Paso 1) | **Sí** |
+| **`transportista`** | `STRING` | **Nombre de la empresa** o persona encargada del transporte. (Paso 1) | **Sí** |
+| **`productos`** | `ARRAY` | Lista de **ítems** que componen la carga. Ver esquema anidado. | **Sí** |
+| **`fecha_creacion`** | `DATETIME` | Marca de tiempo de cuándo fue creada la guía. | **Sí** |
 
-### Ejemplo de datos a guardar
+---
+
+## 🗃️ Esquema Anidado: `ProductoRemision`
+
+Este objeto se utiliza dentro del array `productos` del esquema principal.
+
+| Campo | Tipo | Descripción | Requerido |
+| :--- | :--- | :--- | :--- |
+| **`sku`** | `STRING` | **Código SKU** (Stock Keeping Unit) único del producto. (Paso 2) | **Sí** |
+| **`cantidad`** | `INTEGER` | **Número de unidades** de este producto a transportar. (Paso 2) | **Sí** |
+
+---
+
+## 💡 Ejemplo de Estructura JSON (Creación)
+
+Este es un ejemplo de la carga útil (payload) que se enviaría al endpoint de creación (`POST`).
 
 ```json
 {
-    "id": 101,
-    "SKU": "PRD-001",
-    "nombre": "Laptop Ultraligera X300",
-    "categoria": "alimento",
-    "stock_actual": 15,
-    "stock_minimo": ,
-    "precio": 250.99,
-    "descripcion": "Portátil de alto rendimiento con chasis de aluminio.",
-    "fecha_creacion": "2024-10-25T10:30:00Z"
+  "cliente": "Acme Corp",
+  "destino": "New York, NY",
+  "transportista": "FedEx",
+  "productos": [
+    {
+      "sku": "PRD-X300",
+      "cantidad": 5
+    },
+    {
+      "sku": "PRD-MONITOR27",
+      "cantidad": 10
+    }
+  ]
 }

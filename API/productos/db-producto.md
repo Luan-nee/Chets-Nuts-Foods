@@ -1,6 +1,6 @@
 # 🌐 ATRIBUTOS DE LOS PRODUCTOS
 
-Esta sección describe cómo interactuar con los endpoints de la API para realizar operaciones **CRUD** y la estructura de datos utilizada.
+Esta sección describe los atributos de los productos que se van almacenar.
 
 ---
 
