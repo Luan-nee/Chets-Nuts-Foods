@@ -13,6 +13,7 @@ Este es el objeto de nivel superior que se envía para crear el documento.
 | **`id`** | `INTEGER` | Identificador único de la guía. *Generado por el sistema.* | **Sí** |
 | **`cliente`** | `STRING` | **Nombre del cliente** o razón social a donde se dirige la mercancía. (Paso 1) | **Sí** |
 | **`destino`** | `STRING` | **Dirección completa** del punto de entrega. (Paso 1) | **Sí** |
+| **`estado`** | `String` | Indica el estado del envío. | **Sí** |
 | **`transportista`** | `STRING` | **Nombre de la empresa** o persona encargada del transporte. (Paso 1) | **Sí** |
 | **`productos`** | `ARRAY` | Lista de **ítems** que componen la carga. Ver esquema anidado. | **Sí** |
 | **`fecha_creacion`** | `DATETIME` | Marca de tiempo de cuándo fue creada la guía. | **Sí** |
