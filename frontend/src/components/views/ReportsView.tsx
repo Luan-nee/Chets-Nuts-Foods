@@ -141,19 +141,19 @@ export default function ReportsView() {
         <CardContent>
           <div className="grid gap-6 md:grid-cols-3">
             <div className="rounded-lg border border-border bg-muted p-6">
-              <p className="text-sm text-muted-foreground">Rotación promedio</p>
+              <p className="text-sm text-muted-foreground">Promedios de envíos por día</p>
                 <p className="mt-2 text-3xl font-semibold text-card-foreground">
                 24.5 días
               </p>
             </div>
             <div className="rounded-lg border border-border bg-muted p-6">
-              <p className="text-sm text-muted-foreground">Valor total</p>
+              <p className="text-sm text-muted-foreground">Valor total de ventas hoy</p>
               <p className="mt-2 text-3xl font-semibold text-card-foreground">
                 $458,920
               </p>
             </div>
             <div className="rounded-lg border border-border bg-muted p-6">
-              <p className="text-sm text-muted-foreground">Guías emitidas</p>
+              <p className="text-sm text-muted-foreground">Guías emitidas hoy</p>
               <p className="mt-2 text-3xl font-semibold text-card-foreground">
                 156
               </p>
