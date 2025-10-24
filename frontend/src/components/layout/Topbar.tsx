@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { MenuIcon, SearchIcon, BellIcon, PlusIcon } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -18,14 +18,13 @@ interface TopbarProps {
 
 export default function Topbar({ onMenuClick }: TopbarProps) {
   const location = useLocation();
-  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const { setProductModalOpen, setGuideDrawerOpen } = useAppStore();
 
   const getQuickActionLabel = () => {
-    if (location.pathname === '/products') return 'New Product';
-    if (location.pathname === '/guides') return 'New Guide';
-    return 'Quick Action';
+    if (location.pathname === '/products') return 'Nuevo producto';
+      if (location.pathname === '/guides') return 'Nueva guía';
+      return 'Acción rápida';
   };
 
   const handleQuickAction = () => {
@@ -52,7 +51,7 @@ export default function Topbar({ onMenuClick }: TopbarProps) {
           <SearchIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" strokeWidth={2} />
           <Input
             type="search"
-            placeholder="SearchIcon products, guides..."
+            placeholder="Buscar productos, guías..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-80 pl-10 text-foreground"
@@ -92,13 +91,13 @@ export default function Topbar({ onMenuClick }: TopbarProps) {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="bg-popover text-popover-foreground">
             <DropdownMenuItem className="text-popover-foreground hover:bg-accent hover:text-accent-foreground">
-              Profile
+              Perfil
             </DropdownMenuItem>
             <DropdownMenuItem className="text-popover-foreground hover:bg-accent hover:text-accent-foreground">
-              Settings
+              Configuración
             </DropdownMenuItem>
             <DropdownMenuItem className="text-popover-foreground hover:bg-accent hover:text-accent-foreground">
-              Logout
+              Cerrar sesión
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

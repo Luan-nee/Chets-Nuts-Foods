@@ -5,36 +5,36 @@ import { useNavigate } from 'react-router-dom';
 
 const statsCards = [
   {
-    title: 'Total Stock',
+    title: 'Stock total',
     value: '12,458',
-    subtitle: 'Units in inventory',
+    subtitle: 'Unidades en inventario',
     icon: PackageIcon,
     color: 'text-primary',
     bgColor: 'bg-primary/10',
     link: '/products',
   },
   {
-    title: 'Low Inventory',
+    title: 'Bajo inventario',
     value: '23',
-    subtitle: 'Products below minimum',
+    subtitle: 'Productos por debajo del mínimo',
     icon: AlertTriangleIcon,
     color: 'text-warning',
     bgColor: 'bg-warning/10',
     link: '/products',
   },
   {
-    title: 'Recent Guides',
+    title: 'Guías recientes',
     value: '47',
-    subtitle: 'Issued this month',
+    subtitle: 'Emitidas este mes',
     icon: FileTextIcon,
     color: 'text-secondary',
     bgColor: 'bg-secondary/10',
     link: '/guides',
   },
   {
-    title: 'Top Products',
+    title: 'Productos destacados',
     value: '156',
-    subtitle: 'High turnover items',
+    subtitle: 'Artículos de alta rotación',
     icon: TrendingUpIcon,
     color: 'text-success',
     bgColor: 'bg-success/10',
@@ -61,10 +61,10 @@ export default function DashboardView() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-4xl font-semibold text-foreground">
-          Dashboard
+          Panel
         </h1>
         <p className="mt-2 text-base text-muted-foreground">
-          Overview of your inventory and recent activity
+          Resumen de su inventario y actividad reciente
         </p>
       </div>
 
@@ -102,7 +102,7 @@ export default function DashboardView() {
         <Card className="border-border bg-card">
           <CardHeader>
             <CardTitle className="text-xl font-semibold text-card-foreground">
-              Low Stock Alerts
+              Alertas de stock bajo
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -120,10 +120,10 @@ export default function DashboardView() {
                   </div>
                   <div className="text-right">
                     <p className="text-sm text-muted-foreground">
-                      Current: {product.current}
+                      Actual: {product.current}
                     </p>
                     <p className="text-sm text-warning">
-                      Min: {product.minimum}
+                      Mínimo: {product.minimum}
                     </p>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export default function DashboardView() {
                 className="w-full border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
                 onClick={() => navigate('/products')}
               >
-                View All Products
+                Ver todos los productos
               </Button>
             </div>
           </CardContent>
@@ -142,7 +142,7 @@ export default function DashboardView() {
         <Card className="border-border bg-card">
           <CardHeader>
             <CardTitle className="text-xl font-semibold text-card-foreground">
-              Recent Remission Guides
+              Guías de remisión recientes
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -169,7 +169,7 @@ export default function DashboardView() {
                           : 'bg-warning/10 text-warning'
                       }`}
                     >
-                      {guide.status}
+                      {guide.status === 'Delivered' ? 'Entregado' : guide.status === 'In Transit' ? 'En tránsito' : guide.status === 'Pending' ? 'Pendiente' : guide.status}
                     </span>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function DashboardView() {
                 className="w-full border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
                 onClick={() => navigate('/guides')}
               >
-                View All Guides
+                Ver todas las guías
               </Button>
             </div>
           </CardContent>

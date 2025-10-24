@@ -40,18 +40,18 @@ export default function ProductsView() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-headline text-4xl font-semibold text-foreground">
-            Products
+            Productos
           </h1>
           <p className="mt-2 text-base text-muted-foreground">
-            Manage your inventory products
+            Administre sus productos de inventario
           </p>
         </div>
-        <Button
+          <Button
           onClick={() => setProductModalOpen(true)}
           className="bg-primary text-primary-foreground hover:bg-primary/90"
         >
           <PlusIcon className="mr-2 h-5 w-5" strokeWidth={2} />
-          New Product
+          Nuevo producto
         </Button>
       </div>
 
@@ -62,22 +62,22 @@ export default function ProductsView() {
               <SearchIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" strokeWidth={2} />
               <Input
                 type="search"
-                placeholder="SearchIcon by name or SKU..."
+                placeholder="Buscar por nombre o SKU..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 text-foreground"
               />
             </div>
             <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-              <SelectTrigger className="w-full text-foreground md:w-48">
-                <SelectValue placeholder="Filter by category" />
+                <SelectTrigger className="w-full text-foreground md:w-48">
+                <SelectValue placeholder="Filtrar por categoría" />
               </SelectTrigger>
               <SelectContent className="bg-popover text-popover-foreground">
-                <SelectItem value="all" className="text-popover-foreground">All Categories</SelectItem>
-                <SelectItem value="Electronics" className="text-popover-foreground">Electronics</SelectItem>
+                <SelectItem value="all" className="text-popover-foreground">Todas las categorías</SelectItem>
+                <SelectItem value="Electronics" className="text-popover-foreground">Electrónica</SelectItem>
                 <SelectItem value="Hardware" className="text-popover-foreground">Hardware</SelectItem>
-                <SelectItem value="Tools" className="text-popover-foreground">Tools</SelectItem>
-                <SelectItem value="Raw Materials" className="text-popover-foreground">Raw Materials</SelectItem>
+                <SelectItem value="Tools" className="text-popover-foreground">Herramientas</SelectItem>
+                <SelectItem value="Raw Materials" className="text-popover-foreground">Materias primas</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -89,20 +89,20 @@ export default function ProductsView() {
                   <th className="px-4 py-4 text-left text-sm font-medium text-card-foreground">
                     SKU
                   </th>
-                  <th className="px-4 py-4 text-left text-sm font-medium text-card-foreground">
-                    Name
+                    <th className="px-4 py-4 text-left text-sm font-medium text-card-foreground">
+                    Nombre
                   </th>
-                  <th className="px-4 py-4 text-left text-sm font-medium text-card-foreground">
-                    Category
+                    <th className="px-4 py-4 text-left text-sm font-medium text-card-foreground">
+                    Categoría
                   </th>
-                  <th className="px-4 py-4 text-left text-sm font-medium text-card-foreground">
+                    <th className="px-4 py-4 text-left text-sm font-medium text-card-foreground">
                     Stock
                   </th>
-                  <th className="px-4 py-4 text-left text-sm font-medium text-card-foreground">
-                    Price
+                    <th className="px-4 py-4 text-left text-sm font-medium text-card-foreground">
+                    Precio
                   </th>
-                  <th className="px-4 py-4 text-right text-sm font-medium text-card-foreground">
-                    Actions
+                    <th className="px-4 py-4 text-right text-sm font-medium text-card-foreground">
+                    Acciones
                   </th>
                 </tr>
               </thead>
@@ -173,8 +173,8 @@ export default function ProductsView() {
           {filteredProducts.length === 0 && (
             <div className="py-16 text-center">
               <p className="text-base text-muted-foreground">
-                No products found matching your criteria
-              </p>
+                    No se encontraron productos que coincidan con sus criterios
+                  </p>
             </div>
           )}
         </CardContent>

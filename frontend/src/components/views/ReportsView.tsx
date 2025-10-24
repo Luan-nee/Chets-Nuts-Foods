@@ -37,18 +37,18 @@ export default function ReportsView() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-4xl font-semibold text-foreground">
-          Reports
+          Informes
         </h1>
         <p className="mt-2 text-base text-muted-foreground">
-          Analyze inventory trends and performance
+          Analice las tendencias y el rendimiento del inventario
         </p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Card className="border-border bg-card">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-card-foreground">
-              Stock Movement
+              <CardTitle className="text-xl font-semibold text-card-foreground">
+              Movimiento de stock
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -71,14 +71,14 @@ export default function ReportsView() {
                   dataKey="inbound"
                   stroke="hsl(192, 72%, 42%)"
                   strokeWidth={2}
-                  name="Inbound"
+                  name="Entradas"
                 />
                 <Line
                   type="monotone"
                   dataKey="outbound"
                   stroke="hsl(192, 45%, 56%)"
                   strokeWidth={2}
-                  name="Outbound"
+                  name="Salidas"
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -87,8 +87,8 @@ export default function ReportsView() {
 
         <Card className="border-border bg-card">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-card-foreground">
-              Product Categories
+              <CardTitle className="text-xl font-semibold text-card-foreground">
+              Categorías de producto
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -106,7 +106,7 @@ export default function ReportsView() {
                   fill="#8884d8"
                   dataKey="value"
                 >
-                  {categoryData.map((entry, index) => (
+                  {categoryData.map((_entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
@@ -126,26 +126,26 @@ export default function ReportsView() {
 
       <Card className="border-border bg-card">
         <CardHeader>
-          <CardTitle className="text-xl font-semibold text-card-foreground">
-            Key Metrics
-          </CardTitle>
+            <CardTitle className="text-xl font-semibold text-card-foreground">
+              Métricas clave
+            </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid gap-6 md:grid-cols-3">
             <div className="rounded-lg border border-border bg-muted p-6">
-              <p className="text-sm text-muted-foreground">Average Turnover</p>
-              <p className="mt-2 text-3xl font-semibold text-card-foreground">
-                24.5 days
+              <p className="text-sm text-muted-foreground">Rotación promedio</p>
+                <p className="mt-2 text-3xl font-semibold text-card-foreground">
+                24.5 días
               </p>
             </div>
             <div className="rounded-lg border border-border bg-muted p-6">
-              <p className="text-sm text-muted-foreground">Total Value</p>
+              <p className="text-sm text-muted-foreground">Valor total</p>
               <p className="mt-2 text-3xl font-semibold text-card-foreground">
                 $458,920
               </p>
             </div>
             <div className="rounded-lg border border-border bg-muted p-6">
-              <p className="text-sm text-muted-foreground">Guides Issued</p>
+              <p className="text-sm text-muted-foreground">Guías emitidas</p>
               <p className="mt-2 text-3xl font-semibold text-card-foreground">
                 156
               </p>

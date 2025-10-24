@@ -11,11 +11,11 @@ interface SidebarProps {
 }
 
 const navigationItems = [
-  { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboardIcon },
-  { path: '/products', label: 'Products', icon: PackageIcon },
-  { path: '/guides', label: 'Remission Guides', icon: FileTextIcon },
-  { path: '/reports', label: 'Reports', icon: BarChart3Icon },
-  { path: '/settings', label: 'Settings', icon: SettingsIcon },
+  { path: '/dashboard', label: 'Panel', icon: LayoutDashboardIcon },
+  { path: '/products', label: 'Productos', icon: PackageIcon },
+  { path: '/guides', label: 'Guías de remisión', icon: FileTextIcon },
+  { path: '/reports', label: 'Informes', icon: BarChart3Icon },
+  { path: '/settings', label: 'Configuración', icon: SettingsIcon },
 ];
 
 export default function Sidebar({ isOpen, isMobile, mobileMenuOpen, onClose }: SidebarProps) {
@@ -71,19 +71,19 @@ export default function Sidebar({ isOpen, isMobile, mobileMenuOpen, onClose }: S
 
       <div className="space-y-2 px-4 pb-6">
         <Separator className="mb-4 bg-tertiary-foreground/20" />
-        <Button
+          <Button
           variant="ghost"
           className="w-full justify-start space-x-3 bg-transparent px-4 py-6 text-base font-normal text-tertiary-foreground hover:bg-tertiary-foreground/10 hover:text-tertiary-foreground"
         >
           <UserIcon className="h-5 w-5" strokeWidth={2} />
-          <span>Profile</span>
+          <span>Perfil</span>
         </Button>
         <Button
           variant="ghost"
           className="w-full justify-start space-x-3 bg-transparent px-4 py-6 text-base font-normal text-tertiary-foreground hover:bg-tertiary-foreground/10 hover:text-tertiary-foreground"
         >
           <LogOutIcon className="h-5 w-5" strokeWidth={2} />
-          <span>Logout</span>
+          <span>Cerrar sesión</span>
         </Button>
       </div>
     </div>

@@ -22,7 +22,7 @@ export default function ProductFormModal({ open, onClose }: ProductFormModalProp
       <DialogContent className="max-w-2xl bg-card text-card-foreground">
         <DialogHeader>
           <DialogTitle className="text-2xl font-semibold text-card-foreground">
-            Add New Product
+            Añadir nuevo producto
           </DialogTitle>
         </DialogHeader>
 
@@ -33,46 +33,46 @@ export default function ProductFormModal({ open, onClose }: ProductFormModalProp
               <Input id="sku" placeholder="PRD-XXX" className="text-foreground" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-card-foreground">Product Name</Label>
-              <Input id="name" placeholder="Enter product name" className="text-foreground" />
+              <Label htmlFor="name" className="text-card-foreground">Nombre del producto</Label>
+              <Input id="name" placeholder="Ingrese el nombre del producto" className="text-foreground" />
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="category" className="text-card-foreground">Category</Label>
+            <Label htmlFor="category" className="text-card-foreground">Categoría</Label>
             <Select>
               <SelectTrigger className="text-foreground">
-                <SelectValue placeholder="Select category" />
+                <SelectValue placeholder="Seleccionar categoría" />
               </SelectTrigger>
               <SelectContent className="bg-popover text-popover-foreground">
-                <SelectItem value="electronics" className="text-popover-foreground">Electronics</SelectItem>
+                <SelectItem value="electronics" className="text-popover-foreground">Electrónica</SelectItem>
                 <SelectItem value="hardware" className="text-popover-foreground">Hardware</SelectItem>
-                <SelectItem value="tools" className="text-popover-foreground">Tools</SelectItem>
-                <SelectItem value="raw-materials" className="text-popover-foreground">Raw Materials</SelectItem>
+                <SelectItem value="tools" className="text-popover-foreground">Herramientas</SelectItem>
+                <SelectItem value="raw-materials" className="text-popover-foreground">Materias primas</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
             <div className="space-y-2">
-              <Label htmlFor="stock" className="text-card-foreground">Current Stock</Label>
+              <Label htmlFor="stock" className="text-card-foreground">Stock actual</Label>
               <Input id="stock" type="number" placeholder="0" className="text-foreground" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="minimum" className="text-card-foreground">Minimum Stock</Label>
+              <Label htmlFor="minimum" className="text-card-foreground">Stock mínimo</Label>
               <Input id="minimum" type="number" placeholder="0" className="text-foreground" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="price" className="text-card-foreground">Price</Label>
+              <Label htmlFor="price" className="text-card-foreground">Precio</Label>
               <Input id="price" type="number" step="0.01" placeholder="0.00" className="text-foreground" />
             </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="description" className="text-card-foreground">Description</Label>
+            <Label htmlFor="description" className="text-card-foreground">Descripción</Label>
             <Textarea
               id="description"
-              placeholder="Enter product description"
+              placeholder="Ingrese la descripción del producto"
               rows={4}
               className="text-foreground"
             />
@@ -85,13 +85,13 @@ export default function ProductFormModal({ open, onClose }: ProductFormModalProp
               onClick={onClose}
               className="border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
             >
-              Cancel
+              Cancelar
             </Button>
             <Button
               type="submit"
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              Add Product
+              Agregar producto
             </Button>
           </div>
         </form>

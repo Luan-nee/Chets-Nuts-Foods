@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { Toaster } from '@/components/ui/toaster';
-import AppShell from '@/components/layout/AppShell';
-import DashboardView from '@/components/views/DashboardView';
-import ProductsView from '@/components/views/ProductsView';
-import RemissionGuidesView from '@/components/views/RemissionGuidesView';
-import ReportsView from '@/components/views/ReportsView';
-import SettingsView from '@/components/views/SettingsView';
+import { Toaster } from './components/ui/toaster';
+import AppShell from './components/layout/AppShell';
+import DashboardView from './components/views/DashboardView';
+import ProductsView from './components/views/ProductsView';
+import RemissionGuidesView from './components/views/RemissionGuidesView';
+import ReportsView from './components/views/ReportsView';
+import SettingsView from './components/views/SettingsView';
 
 function App() {
   return (

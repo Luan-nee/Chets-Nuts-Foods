@@ -67,18 +67,18 @@ export default function RemissionGuidesView() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-headline text-4xl font-semibold text-foreground">
-            Remission Guides
+            Guías de remisión
           </h1>
           <p className="mt-2 text-base text-muted-foreground">
-            Track and manage product shipments
+            Rastree y gestione los envíos de productos
           </p>
         </div>
-        <Button
+          <Button
           onClick={() => setGuideDrawerOpen(true)}
           className="bg-primary text-primary-foreground hover:bg-primary/90"
         >
           <PlusIcon className="mr-2 h-5 w-5" strokeWidth={2} />
-          New Guide
+          Nueva guía
         </Button>
       </div>
 
@@ -89,21 +89,21 @@ export default function RemissionGuidesView() {
               <SearchIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" strokeWidth={2} />
               <Input
                 type="search"
-                placeholder="SearchIcon by ID or customer..."
+                placeholder="Buscar por ID o cliente..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 text-foreground"
               />
             </div>
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-full text-foreground md:w-48">
-                <SelectValue placeholder="Filter by status" />
+                <SelectTrigger className="w-full text-foreground md:w-48">
+                <SelectValue placeholder="Filtrar por estado" />
               </SelectTrigger>
               <SelectContent className="bg-popover text-popover-foreground">
-                <SelectItem value="all" className="text-popover-foreground">All Status</SelectItem>
-                <SelectItem value="Pending" className="text-popover-foreground">Pending</SelectItem>
-                <SelectItem value="In Transit" className="text-popover-foreground">In Transit</SelectItem>
-                <SelectItem value="Delivered" className="text-popover-foreground">Delivered</SelectItem>
+                <SelectItem value="all" className="text-popover-foreground">Todos los estados</SelectItem>
+                <SelectItem value="Pending" className="text-popover-foreground">Pendiente</SelectItem>
+                <SelectItem value="In Transit" className="text-popover-foreground">En tránsito</SelectItem>
+                <SelectItem value="Delivered" className="text-popover-foreground">Entregado</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -173,7 +173,7 @@ export default function RemissionGuidesView() {
           {filteredGuides.length === 0 && (
             <div className="py-16 text-center">
               <p className="text-base text-muted-foreground">
-                No remission guides found matching your criteria
+                No se encontraron guías de remisión que coincidan con sus criterios
               </p>
             </div>
           )}

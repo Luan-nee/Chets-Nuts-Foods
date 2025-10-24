@@ -10,27 +10,27 @@ export default function SettingsView() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-4xl font-semibold text-foreground">
-          Settings
+          Configuración
         </h1>
         <p className="mt-2 text-base text-muted-foreground">
-          Manage your application preferences
+          Administre las preferencias de la aplicación
         </p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Card className="border-border bg-card">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-card-foreground">
-              Profile Settings
+              <CardTitle className="text-xl font-semibold text-card-foreground">
+              Configuración del perfil
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-card-foreground">Full Name</Label>
+              <Label htmlFor="name" className="text-card-foreground">Nombre completo</Label>
               <Input id="name" defaultValue="John Doe" className="text-foreground" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-card-foreground">Email</Label>
+              <Label htmlFor="email" className="text-card-foreground">Correo electrónico</Label>
               <Input
                 id="email"
                 type="email"
@@ -39,27 +39,27 @@ export default function SettingsView() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="company" className="text-card-foreground">Company</Label>
+              <Label htmlFor="company" className="text-card-foreground">Empresa</Label>
               <Input id="company" defaultValue="InvenTrack Inc." className="text-foreground" />
             </div>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Save Changes
+              Guardar cambios
             </Button>
           </CardContent>
         </Card>
 
         <Card className="border-border bg-card">
-          <CardHeader>
+            <CardHeader>
             <CardTitle className="text-xl font-semibold text-card-foreground">
-              Notifications
+              Notificaciones
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
-                <Label className="text-card-foreground">Low Stock Alerts</Label>
+                <Label className="text-card-foreground">Alertas de stock bajo</Label>
                 <p className="text-sm text-muted-foreground">
-                  Get notified when products are below minimum
+                  Reciba notificaciones cuando los productos estén por debajo del mínimo
                 </p>
               </div>
               <Switch defaultChecked />
@@ -67,9 +67,9 @@ export default function SettingsView() {
             <Separator className="bg-border" />
             <div className="flex items-center justify-between">
               <div className="space-y-1">
-                <Label className="text-card-foreground">Guide Updates</Label>
+                <Label className="text-card-foreground">Actualizaciones de guías</Label>
                 <p className="text-sm text-muted-foreground">
-                  Receive updates on remission guide status
+                  Reciba actualizaciones sobre el estado de las guías de remisión
                 </p>
               </div>
               <Switch defaultChecked />
@@ -77,9 +77,9 @@ export default function SettingsView() {
             <Separator className="bg-border" />
             <div className="flex items-center justify-between">
               <div className="space-y-1">
-                <Label className="text-card-foreground">Email Reports</Label>
+                <Label className="text-card-foreground">Informes por correo</Label>
                 <p className="text-sm text-muted-foreground">
-                  Weekly summary of inventory activity
+                  Resumen semanal de la actividad de inventario
                 </p>
               </div>
               <Switch />
@@ -89,14 +89,14 @@ export default function SettingsView() {
 
         <Card className="border-border bg-card">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-card-foreground">
-              Inventory Settings
+              <CardTitle className="text-xl font-semibold text-card-foreground">
+              Configuración del inventario
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="default-minimum" className="text-card-foreground">
-                Default Minimum Stock
+                <Label htmlFor="default-minimum" className="text-card-foreground">
+                Stock mínimo por defecto
               </Label>
               <Input
                 id="default-minimum"
@@ -106,42 +106,42 @@ export default function SettingsView() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="currency" className="text-card-foreground">Currency</Label>
+              <Label htmlFor="currency" className="text-card-foreground">Moneda</Label>
               <Input id="currency" defaultValue="USD" className="text-foreground" />
             </div>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Update Settings
+              Actualizar configuración
             </Button>
           </CardContent>
         </Card>
 
         <Card className="border-border bg-card">
           <CardHeader>
-            <CardTitle className="text-xl font-semibold text-card-foreground">
-              Security
+              <CardTitle className="text-xl font-semibold text-card-foreground">
+              Seguridad
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="current-password" className="text-card-foreground">
-                Current Password
+                Contraseña actual
               </Label>
               <Input id="current-password" type="password" className="text-foreground" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="new-password" className="text-card-foreground">
-                New Password
+                Nueva contraseña
               </Label>
               <Input id="new-password" type="password" className="text-foreground" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="confirm-password" className="text-card-foreground">
-                Confirm Password
+                Confirmar contraseña
               </Label>
               <Input id="confirm-password" type="password" className="text-foreground" />
             </div>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Change Password
+              Cambiar contraseña
             </Button>
           </CardContent>
         </Card>
