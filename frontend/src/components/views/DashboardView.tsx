@@ -3,6 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { useNavigate } from 'react-router-dom';
 
+
+// API para obtener estadísticas del dashboard
 const statsCards = [
   {
     title: 'Stock total',
@@ -42,12 +44,15 @@ const statsCards = [
   },
 ];
 
+// API para obtener guías de remisión recientes (solo 3)
 const recentGuides = [
   { id: 'RG-2024-001', customer: 'Acme Corp', date: '2024-01-15', status: 'Delivered' },
   { id: 'RG-2024-002', customer: 'TechStart Inc', date: '2024-01-14', status: 'In Transit' },
   { id: 'RG-2024-003', customer: 'Global Supplies', date: '2024-01-14', status: 'Pending' },
 ];
 
+
+// API para obtener productos con stock bajo
 const lowStockProducts = [
   { sku: 'PRD-001', name: 'Widget A', current: 15, minimum: 50 },
   { sku: 'PRD-045', name: 'Component B', current: 8, minimum: 30 },
