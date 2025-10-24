@@ -1,4 +1,4 @@
-# 🌐 Get producto
+# 🌐 API producto
 
 Esta sección describe cómo interactuar con los endpoints de la API para realizar operaciones **CRUD** (**C**rear, **R**eer, **U**pdate, **D**elete).
 

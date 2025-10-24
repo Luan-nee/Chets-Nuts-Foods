@@ -13,7 +13,7 @@ Este es el objeto de nivel superior que se envía para crear el documento.
 | **`id`** | `INTEGER` | Identificador único de la guía. *Generado por el sistema.* | **Sí** |
 | **`cliente`** | `STRING` | **Nombre del cliente** o razón social a donde se dirige la mercancía. (Paso 1) | **Sí** |
 | **`destino`** | `STRING` | **Dirección completa** del punto de entrega. (Paso 1) | **Sí** |
-| **`estado`** | `String` | Indica el estado del envío. | **Sí** |
+| **`estado`** | `String` | Indica el estado del envío, los únicos valores que puede tener es: **en tránsito**, **entregado** o **pendiente** | **Sí** |
 | **`transportista`** | `STRING` | **Nombre de la empresa** o persona encargada del transporte. (Paso 1) | **Sí** |
 | **`productos`** | `ARRAY` | Lista de **ítems** que componen la carga. Ver esquema anidado. | **Sí** |
 | **`fecha_creacion`** | `DATETIME` | Marca de tiempo de cuándo fue creada la guía. | **Sí** |
@@ -37,9 +37,11 @@ Este es un ejemplo de la carga útil (payload) que se enviaría al endpoint de c
 
 ```json
 {
+  "id": 1,
   "cliente": "Acme Corp",
   "destino": "New York, NY",
   "transportista": "FedEx",
+  "estado": "en tránsito",
   "productos": [
     {
       "sku": "PRD-X300",
@@ -51,3 +53,4 @@ Este es un ejemplo de la carga útil (payload) que se enviaría al endpoint de c
     }
   ]
 }
+```
