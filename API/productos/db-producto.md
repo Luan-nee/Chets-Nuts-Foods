@@ -31,3 +31,4 @@ Este es el formato que se espera para crear o actualizar un recurso, y el que se
     "descripcion": "Portátil de alto rendimiento con chasis de aluminio.",
     "fecha_creacion": "2024-10-25T10:30:00Z"
 }
+```

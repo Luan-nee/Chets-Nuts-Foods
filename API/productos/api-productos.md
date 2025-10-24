@@ -13,6 +13,36 @@ Se utiliza para solicitar y obtener uno o varios productos del servidor. **No mo
 | **`GET`** | `/api/producto` | Obtiene la **lista completa** de todos los productos. |
 | **`GET`** | `/api/producto/{id}` | Obtiene los detalles de un **Producto específico** usando su ID. |
 
+```json
+{
+    "data": [
+        {
+            "id": 101,
+            "SKU": "PRD-001",
+            "nombre": "Laptop Ultraligera X300",
+            "categoria": "alimento",
+            "stock_actual": 15,
+            "stock_minimo": 5,
+            "precio": 250.99,
+            "descripcion": "Portátil de alto rendimiento con chasis de aluminio.",
+            "fecha_creacion": "2024-10-25T10:30:00Z"
+        },
+        {
+            "id": 101,
+            "SKU": "PRD-001",
+            "nombre": "Laptop Ultraligera X300",
+            "categoria": "alimento",
+            "stock_actual": 15,
+            "stock_minimo": 5,
+            "precio": 250.99,
+            "descripcion": "Portátil de alto rendimiento con chasis de aluminio.",
+            "fecha_creacion": "2024-10-25T10:30:00Z"
+        }
+    ]
+    
+}
+```
+
 ---
 
 ## 🟣 Crear Datos (CREATE - POST)
