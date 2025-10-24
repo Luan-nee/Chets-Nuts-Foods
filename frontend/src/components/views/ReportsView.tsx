@@ -13,6 +13,13 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+/* 
+  {
+    "mes": "Ene",
+    "entrada": 450,
+    "salida": 380
+  }
+*/
 const stockMovementData = [
   { month: 'Jan', inbound: 450, outbound: 380 },
   { month: 'Feb', inbound: 520, outbound: 420 },
@@ -22,6 +29,7 @@ const stockMovementData = [
   { month: 'Jun', inbound: 620, outbound: 580 },
 ];
 
+// porcentaje de productos en cada categoría
 const categoryData = [
   { name: 'Electronics', value: 35 },
   { name: 'Hardware', value: 25 },

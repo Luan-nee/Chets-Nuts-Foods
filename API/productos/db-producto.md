@@ -26,7 +26,7 @@ Este es el formato que se espera para crear o actualizar un recurso, y el que se
     "nombre": "Laptop Ultraligera X300",
     "categoria": "alimento",
     "stock_actual": 15,
-    "stock_minimo": ,
+    "stock_minimo": 5,
     "precio": 250.99,
     "descripcion": "Portátil de alto rendimiento con chasis de aluminio.",
     "fecha_creacion": "2024-10-25T10:30:00Z"
