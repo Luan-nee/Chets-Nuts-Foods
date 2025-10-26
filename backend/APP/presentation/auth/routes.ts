@@ -1,7 +1,7 @@
 import { Router } from "express";
 import ControllerAuth from "./controller";
 
-export default class RoutesAuth {
+export class RoutesAuth {
   router() {
     const router = Router();
     const controller = new ControllerAuth();

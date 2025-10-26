@@ -32,6 +32,7 @@ CREATE TABLE producto (
     descripcion VARCHAR(255),
     precioVenta FLOAT(10,2) NOT NULL DEFAULT 0,
     stock INT DEFAULT 0,
+    pesoKG FLOAT(10,2) NOT NULL DEFAULT 0,
     codigoProducto VARCHAR(50),
     fechaRegistro DATE DEFAULT (CURRENT_DATE),
     fechaVenc DATE,
