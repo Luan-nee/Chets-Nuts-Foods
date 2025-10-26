@@ -1,5 +1,5 @@
 import express from "express";
-import {RouterPrincipal} from "./routes/route"
+import {RouterPrincipal} from "./routes/index.route"
 const APP = express();
 const rutas = new RouterPrincipal();
 

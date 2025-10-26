@@ -1,4 +1,4 @@
-import { Response } from "express";
+import { NextFunction, Response } from "express";
 import { CustomResponse } from "../../core/res/custom.response";
 
 export class AuthMiddleware {
@@ -10,7 +10,11 @@ export class AuthMiddleware {
     CustomResponse.unauthorized({ res, error: "token Caducado" });
   }
 
-  private static handleLogout(res: Response, errorMes: String) {
+  private static handleLogout(res: Response, errorMes: string) {
     CustomResponse.unauthorized({ res, message: errorMes });
   }
+
+  static verifiAcceso = (req: Request, res: Response, nex: NextFunction) => {
+    const id = req.authpayload;
+  };
 }
