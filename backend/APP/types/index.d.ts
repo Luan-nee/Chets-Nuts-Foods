@@ -4,7 +4,7 @@ export interface Authpayload {
 
 declare global {
   namespace Express {
-    export interface Request {
+    interface Request {
       authpayload?: Authpayload;
     }
   }
