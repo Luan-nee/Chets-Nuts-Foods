@@ -1,13 +1,9 @@
-export interface Authpayload {
+interface Authpayload {
   id: number;
 }
 
-declare global {
-  namespace Express {
-    interface Request {
-      authpayload?: Authpayload;
-    }
+declare namespace Express {
+  export interface Request {
+    authpayload?: Authpayload;
   }
 }
-
-export {};
