@@ -42,6 +42,14 @@ export default function SettingsView() {
               <Label htmlFor="company" className="text-card-foreground">Empresa</Label>
               <Input id="company" defaultValue="InvenTrack Inc." className="text-foreground" />
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="ruc" className="text-card-foreground">Ruc</Label>
+              <Input type='number' id="ruc" defaultValue="10345678901" className="text-foreground" />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="clave-sol" className="text-card-foreground">Clave-sol</Label>
+              <Input type='password' id="clave-sol" defaultValue="clavesoldefault" className="text-foreground" />
+            </div>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
               Guardar cambios
             </Button>
