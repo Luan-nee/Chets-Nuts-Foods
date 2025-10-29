@@ -17,26 +17,26 @@ Se utiliza para solicitar y obtener uno o varios productos del servidor. **No mo
 {
   "data": [
     {
-      "id": 101,
-      "SKU": "PRD-001",
-      "nombre": "Laptop Ultraligera X300",
-      "categoria": "alimento",
-      "stock_actual": 15,
-      "stock_minimo": 5,
-      "precio": 250.99,
-      "descripcion": "Portátil de alto rendimiento con chasis de aluminio.",
-      "fecha_creacion": "2024-10-25T10:30:00Z"
+      "id": 145,
+      "nombre": "Café Gourmet Blend Oscuro",
+      "descripcion": "Mezcla selecta de granos arábica tostados oscuros. Ideal para espresso o prensa francesa.",
+      "stock": 580,
+      "precio_venta": 15.99,
+      "codigo_producto": "CFE001A",
+      "stock_minimo": 100,
+      "fecha_registro": "2024-09-01",
+      "fecha_vencimiento": "2025-12-31"
     },
     {
-      "id": 101,
-      "SKU": "PRD-001",
-      "nombre": "Laptop Ultraligera X300",
-      "categoria": "alimento",
-      "stock_actual": 15,
-      "stock_minimo": 5,
-      "precio": 250.99,
-      "descripcion": "Portátil de alto rendimiento con chasis de aluminio.",
-      "fecha_creacion": "2024-10-25T10:30:00Z"
+      "id": 146,
+      "nombre": "Té Verde Sencha Orgánico",
+      "descripcion": "Hojas de té verde japonés, de sabor fresco y herbáceo. Empaque de 50g.",
+      "stock": 1200,
+      "precio_venta": 9.5,
+      "codigo_producto": "TVE002B",
+      "stock_minimo": 250,
+      "fecha_registro": "2024-10-15",
+      "fecha_vencimiento": "2026-06-20"
     }
   ]
 }
@@ -56,13 +56,13 @@ Se utiliza para enviar datos al servidor y **crear un nuevo producto**.
 
 ```json
 {
-  "SKU": "PRD-001",
-  "nombre": "Laptop Ultraligera X300",
-  "categoria": "alimento",
-  "stock_actual": 15,
-  "stock_minimo": 5,
-  "precio": 10.99,
-  "descripcion": "Portátil de alto rendimiento con chasis de aluminio."
+  "nombre": "Café Gourmet Blend Oscuro",
+  "descripcion": "Mezcla selecta de granos arábica tostados oscuros. Ideal para espresso o prensa francesa.",
+  "stock": 580,
+  "precio_venta": 15.99,
+  "codigo_producto": "CFE001A",
+  "stock_minimo": 100,
+  "fecha_vencimiento": "2025-12-31"
 }
 ```
 
@@ -78,13 +78,13 @@ Se utiliza para actualizar los datos de un producto existente.
 
 ```json
 {
-  "SKU": "PRD-002",
-  "nombre": "Laptop Ultraligera X300",
-  "categoria": "alimento",
-  "stock_actual": 15,
-  "stock_minimo": 5,
-  "precio": 10.99,
-  "descripcion": "Portátil de alto rendimiento con chasis de aluminio."
+  "nombre": "Café Gourmet Blend Oscuro",
+  "descripcion": "Mezcla selecta de granos arábica tostados oscuros. Ideal para espresso o prensa francesa.",
+  "stock": 580,
+  "precio_venta": 15.99,
+  "codigo_producto": "CFE001A",
+  "stock_minimo": 100,
+  "fecha_vencimiento": "2025-12-31"
 }
 ```
 
@@ -92,7 +92,7 @@ Se utiliza para actualizar los datos de un producto existente.
 
 ## 🔴 Eliminar Datos (DELETE)
 
-Se utiliza para eliminar un producto específico del servidor.
+Se utiliza para eliminar un producto específico de la base de datos.
 
 | Verbo HTTP   | Endpoint             | Descripción                                      |
 | :----------- | :------------------- | :----------------------------------------------- |
