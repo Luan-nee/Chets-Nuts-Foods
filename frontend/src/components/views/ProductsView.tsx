@@ -9,63 +9,8 @@ import {
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Card, CardContent } from "../ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../ui/select";
 import ProductFormModal from "../products/ProductFormModal";
 import { useAppStore } from "../../stores/appStore";
-
-const mockProducts = [
-  {
-    id: 1,
-    sku: "PRD-001",
-    name: "Widget A",
-    category: "Electronics",
-    stock: 150,
-    minimum: 50,
-    price: 29.99,
-  },
-  {
-    id: 2,
-    sku: "PRD-002",
-    name: "Component B",
-    category: "Hardware",
-    stock: 85,
-    minimum: 30,
-    price: 15.5,
-  },
-  {
-    id: 3,
-    sku: "PRD-003",
-    name: "Part C",
-    category: "Electronics",
-    stock: 22,
-    minimum: 40,
-    price: 42.0,
-  },
-  {
-    id: 4,
-    sku: "PRD-004",
-    name: "Tool D",
-    category: "Tools",
-    stock: 200,
-    minimum: 100,
-    price: 89.99,
-  },
-  {
-    id: 5,
-    sku: "PRD-005",
-    name: "Material E",
-    category: "Raw Materials",
-    stock: 500,
-    minimum: 200,
-    price: 5.25,
-  },
-];
 
 const data = [
   {
@@ -96,7 +41,6 @@ const data = [
 
 export default function ProductsView() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("all");
   const { productModalOpen, setProductModalOpen } = useAppStore();
 
   const filteredProducts = data.filter((product) => {
