@@ -10,6 +10,9 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Card, CardContent } from "../ui/card";
 import ProductFormModal from "../products/ProductFormModal";
+import ProductFormView from "../products/ProductFromView";
+import ProductFormUpdate from "../products/ProductFormUpdate";
+import ProductFormDelete from "../products/ProductFormDelete";
 import { useAppStore } from "../../stores/appStore";
 
 const data = [
@@ -42,6 +45,9 @@ const data = [
 export default function ProductsView() {
   const [searchQuery, setSearchQuery] = useState("");
   const { productModalOpen, setProductModalOpen } = useAppStore();
+  const { productFormViewOpen, setProductFormViewOpen } = useAppStore();
+  const { productFormUpdateOpen, setProductFormUpdateOpen } = useAppStore();
+  const { productFormDeleteOpen, setProductFormDeleteOpen } = useAppStore();
 
   const filteredProducts = data.filter((product) => {
     const matchesSearch =
@@ -142,6 +148,7 @@ export default function ProductsView() {
                     <td className="px-4 py-4">
                       <div className="flex justify-end space-x-2">
                         <Button
+                          onClick={() => setProductFormViewOpen(true)}
                           variant="ghost"
                           size="icon"
                           className="bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
@@ -149,6 +156,7 @@ export default function ProductsView() {
                           <EyeIcon className="h-5 w-5" strokeWidth={2} />
                         </Button>
                         <Button
+                          onClick={() => setProductFormUpdateOpen(true)}
                           variant="ghost"
                           size="icon"
                           className="bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
@@ -156,6 +164,7 @@ export default function ProductsView() {
                           <EditIcon className="h-5 w-5" strokeWidth={2} />
                         </Button>
                         <Button
+                          onClick={() => setProductFormDeleteOpen(true)}
                           variant="ghost"
                           size="icon"
                           className="bg-transparent text-destructive hover:bg-destructive/10 hover:text-destructive"
@@ -183,6 +192,22 @@ export default function ProductsView() {
       <ProductFormModal
         open={productModalOpen}
         onClose={() => setProductModalOpen(false)}
+      />
+
+      <ProductFormView
+        productData={data[0]}
+        open={productFormViewOpen}
+        onClose={() => setProductFormViewOpen(false)}
+      />
+
+      <ProductFormUpdate
+        open={productFormUpdateOpen}
+        onClose={() => setProductFormUpdateOpen(false)}
+      />
+
+      <ProductFormDelete
+        open={productFormDeleteOpen}
+        onClose={() => setProductFormDeleteOpen(false)}
       />
     </div>
   );
