@@ -1,5 +1,5 @@
-import { forwardRef } from "react";
-
+import { forwardRef, useCallback } from "react";
+import { useState } from "react";
 import { cn } from "../../lib/utils";
 
 // Icono de Ojo (Mostrar contraseña) - Inline SVG
@@ -40,37 +40,37 @@ const EyeOffIcon = () => (
   </svg>
 );
 
-const InputPassword2 = () => {
-  return (
-    <div className="relative">
-      <input
-
-        className={cn(
-          "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-          
-        )}
-        
-      />
-    </div>
-  );
-};
-
-export { InputPassword2 };
-
 const InputPassword = forwardRef<
   HTMLInputElement,
   React.ComponentProps<"input">
 >(({ className, type, ...props }, ref) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <input
-      type={type}
-      className={cn(
-        "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        className
-      )}
-      ref={ref}
-      {...props}
-    />
+    <div className="relative">
+      <input
+        type={showPassword ? "text" : "password"}
+        className={cn(
+          "flex h-10 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 shadow-inner transition-colors placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50",
+          showPassword ? "pr-10" : ""
+        )}
+        ref={ref}
+        {...props}
+      />
+
+      <button
+        type="button"
+        onClick={togglePasswordVisibility}
+        className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer text-gray-500 hover:text-blue-600 transition-colors"
+        aria-label={showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
+      >
+        {showPassword ? <EyeIcon /> : <EyeOffIcon />}
+      </button>
+    </div>
   );
 });
 
