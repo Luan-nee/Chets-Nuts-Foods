@@ -24,6 +24,12 @@ export default class SessionUseCase {
     return resultado;
   }
 
+  async sessionUserMain(data: LoginUserDTO) {
+    const resultado = await DB.select()
+      .from("usuarios")
+      .where(AND(eq("correo", data.usuario), eq("contra", data.clave)));
+  }
+
   async sessionDirectorGoogle(data: googleSecions) {
     const [user]: responseUser[] = await DB.select([
       "usuarios.id",
