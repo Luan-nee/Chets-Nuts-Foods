@@ -5,11 +5,26 @@ import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 
 interface ProductFromUpdateProps {
+  productData: {
+    id: number;
+    codigo_producto: string;
+    nombre: string;
+    descripcion: string;
+    stock: number;
+    stock_minimo: number;
+    precio_venta: number;
+    fecha_registro: string;
+    fecha_vencimiento: string;
+  };
   open: boolean;
   onClose: () => void;
 }
 
-const ProductFromUpdate = ({ open, onClose }: ProductFromUpdateProps) => {
+const ProductFromUpdate = ({
+  productData,
+  open,
+  onClose,
+}: ProductFromUpdateProps) => {
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl bg-card text-card-foreground">
@@ -27,7 +42,7 @@ const ProductFromUpdate = ({ open, onClose }: ProductFromUpdateProps) => {
               </Label>
               <Input
                 id="codigo"
-                placeholder="CFE001A"
+                value={productData.codigo_producto}
                 className="text-foreground"
               />
             </div>
@@ -37,7 +52,7 @@ const ProductFromUpdate = ({ open, onClose }: ProductFromUpdateProps) => {
               </Label>
               <Input
                 id="nombre-producto"
-                placeholder="Ingrese el nombre del producto"
+                value={productData.nombre}
                 className="text-foreground"
               />
             </div>
@@ -50,8 +65,8 @@ const ProductFromUpdate = ({ open, onClose }: ProductFromUpdateProps) => {
               </Label>
               <Input
                 id="stock"
+                value={productData.stock}
                 type="number"
-                placeholder="0"
                 className="text-foreground"
               />
             </div>
@@ -61,8 +76,8 @@ const ProductFromUpdate = ({ open, onClose }: ProductFromUpdateProps) => {
               </Label>
               <Input
                 id="stock-minimo"
+                value={productData.stock_minimo}
                 type="number"
-                placeholder="0"
                 className="text-foreground"
               />
             </div>
@@ -72,9 +87,9 @@ const ProductFromUpdate = ({ open, onClose }: ProductFromUpdateProps) => {
               </Label>
               <Input
                 id="precio-venta"
+                value={productData.precio_venta}
                 type="number"
                 step="0.01"
-                placeholder="0.00"
                 className="text-foreground"
               />
             </div>
@@ -86,7 +101,7 @@ const ProductFromUpdate = ({ open, onClose }: ProductFromUpdateProps) => {
             </Label>
             <Textarea
               id="description"
-              placeholder="Ingrese la descripción del producto"
+              value={productData.descripcion}
               rows={4}
               className="text-foreground"
             />
@@ -98,6 +113,7 @@ const ProductFromUpdate = ({ open, onClose }: ProductFromUpdateProps) => {
             </Label>
             <Input
               id="fecha-vencimiento"
+              value={productData.fecha_vencimiento}
               type="date"
               className="text-foreground"
             />

@@ -3,6 +3,7 @@ import { create } from "zustand";
 interface AppState {
   productModalOpen: boolean;
   guideDrawerOpen: boolean;
+
   setProductModalOpen: (open: boolean) => void;
   setGuideDrawerOpen: (open: boolean) => void;
 

@@ -1,4 +1,4 @@
-import { Dialog, DialogContent } from "../ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogHeader } from "../ui/dialog";
 import { cn } from "../../lib/utils";
 
 interface ProductFromViewProps {
@@ -64,23 +64,35 @@ const ProductFromView = ({
   onClose,
   productData,
 }: ProductFromViewProps) => {
+  console.log(productData);
+
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="bg-gray-100 max-w-2xl text-card-foreground p-0 border-0 shadow-lg">
+      <DialogContent
+        aria-describedby={"texto cualquiera"}
+        className="bg-gray-100 max-w-2xl text-card-foreground p-0 border-0 shadow-lg"
+      >
         <div className="font-sans flex items-start justify-center">
           {/* Tarjeta de Visualización de Datos */}
           <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300">
             {/* Encabezado de la Tarjeta */}
-            <div
-              className={cn(colors["primary-teal"], "text-white p-6 md:p-8")}
-            >
-              <h1 className="text-3xl font-extrabold mb-1">
-                {productData.nombre}
-              </h1>
-              <p className="text-teal-100 text-sm opacity-90">
-                ID: {productData.id} | Código: {productData.codigo_producto}
-              </p>
-            </div>
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-semibold text-card-foreground">
+                <div
+                  className={cn(
+                    colors["primary-teal"],
+                    "text-white p-6 md:p-8"
+                  )}
+                >
+                  <h1 className="text-3xl font-extrabold mb-1">
+                    {productData.nombre}
+                  </h1>
+                  <p className="text-teal-100 text-sm opacity-90">
+                    ID: {productData.id} | Código: {productData.codigo_producto}
+                  </p>
+                </div>
+              </DialogTitle>
+            </DialogHeader>
 
             {/* Cuerpo y Detalles del Producto */}
             <div className="p-6 md:p-8 space-y-6">

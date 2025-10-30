@@ -49,6 +49,8 @@ export default function ProductsView() {
   const { productFormUpdateOpen, setProductFormUpdateOpen } = useAppStore();
   const { productFormDeleteOpen, setProductFormDeleteOpen } = useAppStore();
 
+  const [selectedProductId, setSelectedProductId] = useState<number>(0);
+
   const filteredProducts = data.filter((product) => {
     const matchesSearch =
       product.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -116,7 +118,7 @@ export default function ProductsView() {
                 </tr>
               </thead>
               <tbody>
-                {filteredProducts.map((product) => (
+                {filteredProducts.map((product, index) => (
                   <tr
                     key={product.id}
                     className="border-b border-border transition-colors hover:bg-muted"
@@ -148,7 +150,10 @@ export default function ProductsView() {
                     <td className="px-4 py-4">
                       <div className="flex justify-end space-x-2">
                         <Button
-                          onClick={() => setProductFormViewOpen(true)}
+                          onClick={() => {
+                            setSelectedProductId(index);
+                            setProductFormViewOpen(true);
+                          }}
                           variant="ghost"
                           size="icon"
                           className="bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
@@ -156,7 +161,10 @@ export default function ProductsView() {
                           <EyeIcon className="h-5 w-5" strokeWidth={2} />
                         </Button>
                         <Button
-                          onClick={() => setProductFormUpdateOpen(true)}
+                          onClick={() => {
+                            // setSelectedProductId(product.id);
+                            setProductFormUpdateOpen(true);
+                          }}
                           variant="ghost"
                           size="icon"
                           className="bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground"
@@ -164,7 +172,10 @@ export default function ProductsView() {
                           <EditIcon className="h-5 w-5" strokeWidth={2} />
                         </Button>
                         <Button
-                          onClick={() => setProductFormDeleteOpen(true)}
+                          onClick={() => {
+                            // setSelectedProductId(product.id);
+                            setProductFormDeleteOpen(true);
+                          }}
                           variant="ghost"
                           size="icon"
                           className="bg-transparent text-destructive hover:bg-destructive/10 hover:text-destructive"
@@ -195,12 +206,13 @@ export default function ProductsView() {
       />
 
       <ProductFormView
-        productData={data[0]}
+        productData={data[selectedProductId]}
         open={productFormViewOpen}
         onClose={() => setProductFormViewOpen(false)}
       />
 
       <ProductFormUpdate
+        productData={data[selectedProductId]}
         open={productFormUpdateOpen}
         onClose={() => setProductFormUpdateOpen(false)}
       />
