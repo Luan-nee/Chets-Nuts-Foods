@@ -16,8 +16,8 @@ CREATE TABLE usuarios (
     estado ENUM('activo', 'inactivo') DEFAULT 'activo'
 );
 
-CREATE TABLE comerciante (
-    idComerciante INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Proveedor (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(255),
     RUC VARCHAR(20),
@@ -41,14 +41,14 @@ CREATE TABLE producto (
 
 CREATE TABLE sucursal_compras (
     idCompra INT AUTO_INCREMENT PRIMARY KEY,
-    idComerciante INT NOT NULL,
+    idProveedor INT NOT NULL,
     cantidadTotal INT DEFAULT 0,
     precioTotal FLOAT(10,2) DEFAULT 0,
     fechaEntrada DATE DEFAULT (CURRENT_DATE)
 );
 
 CREATE TABLE detalle_compra (
-    idDetalleC INT AUTO_INCREMENT PRIMARY KEY,
+    idDetalle INT AUTO_INCREMENT PRIMARY KEY,
     idCompra INT NOT NULL,
     idProducto INT NOT NULL,
     cantidad INT DEFAULT 0,

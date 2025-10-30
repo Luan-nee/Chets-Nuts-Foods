@@ -6,17 +6,17 @@ import { handleError } from "../../core/res/hanlde.error";
 import { googleSecions } from "../../core/core";
 
 export default class ControllerAuth {
-  sessionDirector(req: Request, res: Response) {
-    const [error, loginDirector] = LoginUserDTO.createDirector(req.body);
+  sessionJefe(req: Request, res: Response) {
+    const [error, loginMain] = LoginUserDTO.createSessionUserMain(req.body);
 
-    if (error !== undefined || loginDirector === undefined) {
+    if (error !== undefined || loginMain === undefined) {
       return CustomResponse.badRequest({ res, error: "Datos incorrectos" });
     }
 
     const userControl = new SessionUseCase();
 
     userControl
-      .sessionDirector(loginDirector)
+      .sessionDirector(loginMain)
       .then((response) => {
         CustomResponse.success({ res, data: response });
       })

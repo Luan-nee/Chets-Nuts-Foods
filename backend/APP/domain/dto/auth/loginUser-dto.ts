@@ -2,14 +2,14 @@ import { createSessionValidator } from "../../../validators/auth/sessionValidato
 
 export class LoginUserDTO {
   public clave: string;
-  public id: number;
+  public usuario: string;
 
-  private constructor({ clave, id }: LoginUserDTO) {
+  private constructor({ clave, usuario }: LoginUserDTO) {
     this.clave = clave;
-    this.id = id;
+    this.usuario = usuario;
   }
 
-  static createDirector(
+  static createSessionUserMain(
     input: any
   ): [string | undefined, LoginUserDTO | undefined] {
     const result = createSessionValidator(input);
