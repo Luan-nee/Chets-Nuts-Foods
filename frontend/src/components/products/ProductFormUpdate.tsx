@@ -1,3 +1,6 @@
+import { Producto } from "../../types/Producto";
+
+import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -5,17 +8,7 @@ import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 
 interface ProductFromUpdateProps {
-  productData: {
-    id: number;
-    codigo_producto: string;
-    nombre: string;
-    descripcion: string;
-    stock: number;
-    stock_minimo: number;
-    precio_venta: number;
-    fecha_registro: string;
-    fecha_vencimiento: string;
-  };
+  productData: Producto;
   open: boolean;
   onClose: () => void;
 }
@@ -25,6 +18,45 @@ const ProductFromUpdate = ({
   open,
   onClose,
 }: ProductFromUpdateProps) => {
+  const [formData, setFormData] = useState(productData);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    const isNumericField = ["stock", "stock-minimo", "precio-venta"].includes(
+      id
+    );
+    const newValue = isNumericField ? Number(value) : value;
+    setFormData((prevData) => {
+      const keyMap: {
+        [key: string]: keyof ProductFromUpdateProps["productData"];
+      } = {
+        codigo_producto: "codigo_producto",
+        nombre: "nombre",
+        descripcion: "descripcion",
+        stock: "stock",
+        stock_minimo: "stock_minimo",
+        precio_venta: "precio_venta",
+        fecha_vencimiento: "fecha_vencimiento",
+      };
+
+      const key = keyMap[id];
+      if (!key) return prevData;
+
+      return {
+        ...prevData,
+        [key]: newValue,
+      };
+    });
+  };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Aquí es donde llamarías a tu API o función para guardar los cambios
+    console.log("Datos a enviar para actualizar:", formData);
+    // onClose(); // Cerrar el modal después de guardar
+  };
+
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl bg-card text-card-foreground">
@@ -34,7 +66,7 @@ const ProductFromUpdate = ({
           </DialogTitle>
         </DialogHeader>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="codigo" className="text-card-foreground">
@@ -42,7 +74,8 @@ const ProductFromUpdate = ({
               </Label>
               <Input
                 id="codigo"
-                value={productData.codigo_producto}
+                value={formData.codigo_producto}
+                onChange={handleChange}
                 className="text-foreground"
               />
             </div>
@@ -52,7 +85,8 @@ const ProductFromUpdate = ({
               </Label>
               <Input
                 id="nombre-producto"
-                value={productData.nombre}
+                value={formData.nombre}
+                onChange={handleChange}
                 className="text-foreground"
               />
             </div>
@@ -65,7 +99,8 @@ const ProductFromUpdate = ({
               </Label>
               <Input
                 id="stock"
-                value={productData.stock}
+                value={formData.stock}
+                onChange={handleChange}
                 type="number"
                 className="text-foreground"
               />
@@ -76,7 +111,8 @@ const ProductFromUpdate = ({
               </Label>
               <Input
                 id="stock-minimo"
-                value={productData.stock_minimo}
+                value={formData.stock_minimo}
+                onChange={handleChange}
                 type="number"
                 className="text-foreground"
               />
@@ -87,7 +123,8 @@ const ProductFromUpdate = ({
               </Label>
               <Input
                 id="precio-venta"
-                value={productData.precio_venta}
+                value={formData.precio_venta}
+                onChange={handleChange}
                 type="number"
                 step="0.01"
                 className="text-foreground"
@@ -101,7 +138,8 @@ const ProductFromUpdate = ({
             </Label>
             <Textarea
               id="description"
-              value={productData.descripcion}
+              value={formData.descripcion}
+              onChange={handleChange}
               rows={4}
               className="text-foreground"
             />
@@ -113,7 +151,8 @@ const ProductFromUpdate = ({
             </Label>
             <Input
               id="fecha-vencimiento"
-              value={productData.fecha_vencimiento}
+              value={formData.fecha_vencimiento}
+              onChange={handleChange}
               type="date"
               className="text-foreground"
             />

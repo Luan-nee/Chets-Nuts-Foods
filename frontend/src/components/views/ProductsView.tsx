@@ -14,33 +14,7 @@ import ProductFormView from "../products/ProductFromView";
 import ProductFormUpdate from "../products/ProductFormUpdate";
 import ProductFormDelete from "../products/ProductFormDelete";
 import { useAppStore } from "../../stores/appStore";
-
-const data = [
-  {
-    id: 145,
-    nombre: "Café Gourmet Blend Oscuro",
-    descripcion:
-      "Mezcla selecta de granos arábica tostados oscuros. Ideal para espresso o prensa francesa.",
-    stock: 580,
-    precio_venta: 15.99,
-    codigo_producto: "CFE001A",
-    stock_minimo: 100,
-    fecha_registro: "2024-09-01",
-    fecha_vencimiento: "2025-12-31",
-  },
-  {
-    id: 146,
-    nombre: "Té Verde Sencha Orgánico",
-    descripcion:
-      "Hojas de té verde japonés, de sabor fresco y herbáceo. Empaque de 50g.",
-    stock: 1200,
-    precio_venta: 9.5,
-    codigo_producto: "TVE002B",
-    stock_minimo: 250,
-    fecha_registro: "2024-10-15",
-    fecha_vencimiento: "2026-06-20",
-  },
-];
+import { productos } from "../../json/JSON-product";
 
 export default function ProductsView() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -48,10 +22,9 @@ export default function ProductsView() {
   const { productFormViewOpen, setProductFormViewOpen } = useAppStore();
   const { productFormUpdateOpen, setProductFormUpdateOpen } = useAppStore();
   const { productFormDeleteOpen, setProductFormDeleteOpen } = useAppStore();
-
   const [selectedProductId, setSelectedProductId] = useState<number>(0);
 
-  const filteredProducts = data.filter((product) => {
+  const filteredProducts = productos.filter((product) => {
     const matchesSearch =
       product.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.codigo_producto.toLowerCase().includes(searchQuery.toLowerCase());
@@ -88,7 +61,7 @@ export default function ProductsView() {
               />
               <Input
                 type="search"
-                placeholder="Buscar por nombre o SKU..."
+                placeholder="Buscar por nombre o codigo del producto ..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 text-foreground"
@@ -206,13 +179,13 @@ export default function ProductsView() {
       />
 
       <ProductFormView
-        productData={data[selectedProductId]}
+        productData={productos[selectedProductId]}
         open={productFormViewOpen}
         onClose={() => setProductFormViewOpen(false)}
       />
 
       <ProductFormUpdate
-        productData={data[selectedProductId]}
+        productData={productos[selectedProductId]}
         open={productFormUpdateOpen}
         onClose={() => setProductFormUpdateOpen(false)}
       />
