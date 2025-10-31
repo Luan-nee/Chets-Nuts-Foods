@@ -6,7 +6,7 @@ import { handleError } from "../../core/res/hanlde.error";
 import { googleSecions } from "../../core/core";
 
 export default class ControllerAuth {
-  sessionJefe(req: Request, res: Response) {
+  sessionMain(req: Request, res: Response) {
     const [error, loginMain] = LoginUserDTO.createSessionUserMain(req.body);
 
     if (error !== undefined || loginMain === undefined) {
@@ -16,7 +16,7 @@ export default class ControllerAuth {
     const userControl = new SessionUseCase();
 
     userControl
-      .sessionDirector(loginMain)
+      .sessionUserMain(loginMain)
       .then((response) => {
         CustomResponse.success({ res, data: response });
       })

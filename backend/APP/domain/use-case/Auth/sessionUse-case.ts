@@ -16,11 +16,11 @@ export default class SessionUseCase {
   async sessionDirector(data: LoginUserDTO) {
     const resultado = await DB.select(["clave"])
       .from("claves2A")
-      .where(AND(eq("clave", data.clave), eq("idUser", data.id)))
+      .where(AND(eq("clave", data.clave) /*,eq("idUser", data.id)*/))
       .execute();
     console.log(resultado);
 
-    JWTadapter.createAccessToken({ payload: { id: data.id } });
+    //JWTadapter.createAccessToken({ payload: { id: data.id } });
     return resultado;
   }
 
@@ -28,6 +28,9 @@ export default class SessionUseCase {
     const resultado = await DB.select()
       .from("usuarios")
       .where(AND(eq("correo", data.usuario), eq("contra", data.clave)));
+
+    console.log(resultado);
+    return resultado;
   }
 
   async sessionDirectorGoogle(data: googleSecions) {

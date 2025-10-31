@@ -6,7 +6,7 @@ export class RoutesAuth {
     const router = Router();
     const controller = new ControllerAuth();
 
-    router.post("/director", controller.sessionDirector);
+    router.post("/session", controller.sessionMain);
     router.post("/pruebadirector", controller.sessionGoogle);
     return router;
   }
