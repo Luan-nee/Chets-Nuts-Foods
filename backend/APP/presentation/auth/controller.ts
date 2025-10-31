@@ -7,6 +7,7 @@ import { googleSecions } from "../../core/core";
 
 export default class ControllerAuth {
   sessionMain(req: Request, res: Response) {
+    console.log("verificando...");
     const [error, loginMain] = LoginUserDTO.createSessionUserMain(req.body);
 
     if (error !== undefined || loginMain === undefined) {
@@ -25,6 +26,11 @@ export default class ControllerAuth {
         handleError(error, res);
       });
   }
+
+  sessionPrueba(req: Request, res: Response) {
+    res.send("GENIAL!!");
+  }
+
   sessionGoogle(req: Request, res: Response) {
     const data1 = req.body;
 

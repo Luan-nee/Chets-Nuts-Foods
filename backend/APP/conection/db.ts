@@ -1,6 +1,6 @@
 //import { createPool, FieldPacket, QueryResult } from "mysql2/promise";
 //import { Pool } from "pg";
-import {createPool} from "mysql2"
+import { createPool } from "mysql2";
 
 export interface connecionLocal {
   host: string;
@@ -88,9 +88,9 @@ export class BDconnection {
   }: Consultas): Promise<any> {
     try {
       if (this.tipo === "mysql") {
-        const respuesta = ["1"]; //await //this.connecionMyql().query(query, valores);
+        const respuesta = await this.connecionMyql().query(query, valores); //["1"]
         return respuesta;
-      } 
+      }
       /*else if (this.tipo === "pg") {
         let query2 = query;
         if (valores) {

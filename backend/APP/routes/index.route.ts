@@ -1,12 +1,11 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+import { ApiRoutes } from "./api.routes";
 
 export class RouterPrincipal {
   router() {
     const router = Router();
-
-    router.use("/",(req:Request,res:Response)=>{
-        res.send("WELCOME PAGE 0");
-    });
+    console.log("pasando por las rutas");
+    router.use("/api", ApiRoutes.routes);
 
     return router;
   }

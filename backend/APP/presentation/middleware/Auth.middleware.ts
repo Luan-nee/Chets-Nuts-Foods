@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { CustomResponse } from "../../core/res/custom.response";
 import { JWTadapter } from "../../core/config/AccessToken";
+import pkg from "jsonwebtoken";
 
 export class AuthMiddleware {
   private static handleAuthError(res: Response) {
@@ -34,25 +35,30 @@ export class AuthMiddleware {
 
     const [, token] = partes;
     try {
-      const decodeAuthpayload = JWTadapter.verifyToken({ token });
+      const decodeAuthpayload = JWTadapter.verifyToken({
+        token,
+      }) as Authpayload;
 
-      const authpayload = decodeAuthpayload?.id;
+      const authpayload = decodeAuthpayload.id;
 
       const tiempoActual = Math.floor(Date.now() / 1000);
+      if (!decodeAuthpayload.exp) {
+        decodeAuthpayload.exp = 400;
+      }
       const tiempoRestante = decodeAuthpayload.exp - tiempoActual;
-      req.authpayload = authpayload;
+      req.authpayload = decodeAuthpayload;
       req.tiempo = tiempoRestante;
 
       console.log("tiempo : " + req.tiempo + " cod : " + req.authpayload);
 
       if (req.authpayload === undefined || req.tiempo < 0) {
-        return AuthMiddleware.#hanlerOutLogin(res);
+        return AuthMiddleware.handleAuthError(res);
       }
 
       next();
     } catch (error) {
       if (error instanceof pkg.JsonWebTokenError) {
-        AuthMiddleware.#handleAuthError(res);
+        AuthMiddleware.handleAuthError(res);
         return;
       }
       next(error);

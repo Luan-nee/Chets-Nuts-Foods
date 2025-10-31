@@ -27,7 +27,8 @@ export default class SessionUseCase {
   async sessionUserMain(data: LoginUserDTO) {
     const resultado = await DB.select()
       .from("usuarios")
-      .where(AND(eq("correo", data.usuario), eq("contra", data.clave)));
+      .where(AND(eq("correo", data.usuario), eq("contra", data.clave)))
+      .execute();
 
     console.log(resultado);
     return resultado;
