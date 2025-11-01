@@ -3,6 +3,7 @@ import { AND, eq } from "../../../conection/middleware/condicionals";
 import { JWTadapter } from "../../../core/config/AccessToken";
 import { googleSecions } from "../../../core/core";
 import { CustomError } from "../../../core/res/Custom.error";
+import { Usuarios } from "../../../presentation/auth/typesAuth";
 import { LoginUserDTO } from "../../dto/auth/loginUser-dto";
 
 export interface responseUser {
@@ -13,6 +14,14 @@ export interface responseUser {
 }
 
 export default class SessionUseCase {
+  private generarToken(input: Record<string, any>, duration?: number) {
+    const token = JWTadapter.createAccessToken({
+      payload: input,
+      duration: duration,
+    });
+    return token;
+  }
+
   async sessionDirector(data: LoginUserDTO) {
     const resultado = await DB.select(["clave"])
       .from("claves2A")
@@ -25,13 +34,33 @@ export default class SessionUseCase {
   }
 
   async sessionUserMain(data: LoginUserDTO) {
-    const resultado = await DB.select()
+    const resultado: Usuarios[] = await DB.select()
       .from("usuarios")
       .where(AND(eq("correo", data.usuario), eq("contra", data.clave)))
       .execute();
 
-    console.log(resultado);
-    return resultado;
+    if (resultado.length < 1) {
+      throw CustomError.badRequest("Usuario o contra Incorrectos");
+    }
+
+    if (resultado.length > 1) {
+      throw CustomError.badRequest(
+        "Erros en los datos de los usuarios o clonados"
+      );
+    }
+
+    if (resultado[0].rol != "admin") {
+      throw CustomError.badRequest("Acceso denegado ,No tiene permisos ");
+    }
+
+    const token = this.generarToken({ id: resultado[0].id });
+
+    const respuesta = {
+      mensaje: `Logeado con exito !! `,
+      token,
+    };
+
+    return respuesta;
   }
 
   async sessionDirectorGoogle(data: googleSecions) {
