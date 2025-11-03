@@ -1,4 +1,10 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "../ui/dialog";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
@@ -20,6 +26,9 @@ export default function ProductFormModal({
           <DialogTitle className="text-2xl font-semibold text-card-foreground">
             Añadir nuevo producto
           </DialogTitle>
+          <DialogDescription>
+            Rellena los campos para agregar un nuevo producto.
+          </DialogDescription>
         </DialogHeader>
 
         <form className="space-y-6">

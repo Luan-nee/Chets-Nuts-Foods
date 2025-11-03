@@ -1,4 +1,10 @@
-import { Dialog, DialogContent, DialogTitle, DialogHeader } from "../ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogHeader,
+  DialogDescription,
+} from "../ui/dialog";
 import { cn } from "../../lib/utils";
 
 interface ProductFromViewProps {
@@ -92,6 +98,9 @@ const ProductFromView = ({
                   </p>
                 </div>
               </DialogTitle>
+              <DialogDescription>
+                Rellena los campos para agregar un nuevo producto.
+              </DialogDescription>
             </DialogHeader>
 
             {/* Cuerpo y Detalles del Producto */}

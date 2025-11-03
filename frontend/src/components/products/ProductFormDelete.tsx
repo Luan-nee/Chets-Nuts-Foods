@@ -1,4 +1,10 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "../ui/dialog";
 import { Button } from "../ui/button";
 
 interface ProductFromViewProps {
@@ -14,14 +20,13 @@ const ProductFromView = ({ open, onClose }: ProductFromViewProps) => {
           <DialogTitle className="text-2xl font-semibold text-card-foreground">
             Eliminar un producto
           </DialogTitle>
+          <DialogDescription>
+            ¿Está seguro de eliminar este producto?
+          </DialogDescription>
         </DialogHeader>
 
         <form className="space-y-6">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="space-y-2">
-              <p>¿Está seguro de que desea eliminar este producto?</p>
-            </div>
-
             <div className="flex justify-end space-x-4">
               <Button
                 type="button"

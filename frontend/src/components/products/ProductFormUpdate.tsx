@@ -1,7 +1,13 @@
 import { Producto } from "../../types/Producto";
 
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "../ui/dialog";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
@@ -64,6 +70,9 @@ const ProductFromUpdate = ({
           <DialogTitle className="text-2xl font-semibold text-card-foreground">
             Editar datos del producto
           </DialogTitle>
+          <DialogDescription>
+            Modifica los campos para editar el producto.
+          </DialogDescription>
         </DialogHeader>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
